@@ -1,0 +1,23 @@
+TITLE: Confirmatory Factor Analysis (CFA) for 数据第二版_data_norm_final_nohead.csv
+
+DATA:
+  FILE = "数据第二版_data_norm_final.csv";
+  FORMAT = CSV;
+
+VARIABLE:
+  NAMES = i1 i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i12 i13; ! 缩短变量名称
+  USEVARIABLES = i1 i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i12 i13;
+
+MODEL:
+  ! 定义第一个维度，包含前四列
+  factor1 BY i1 i2 i3 i4;
+
+  ! 定义第二个维度，包含第5-9列
+  factor2 BY i5 i6 i7 i8 i9;
+
+  ! 定义第三个维度，包含第10-13列
+  factor3 BY i10 i11 i12 i13;
+
+OUTPUT:
+  STANDARDIZED;
+  MODINDICES;

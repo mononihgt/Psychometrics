@@ -1,0 +1,53 @@
+Mplus VERSION 8.3 (Mac)
+MUTHEN & MUTHEN
+12/24/2024  12:28 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Confirmatory Factor Analysis (CFA) for 数据第二版_data_norm_final_nohead.csv
+
+  DATA:
+    FILE = "数据第二版_data_norm_final.csv";
+    FORMAT = CSV;
+
+  VARIABLE:
+    NAMES = i1 i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i12 i13; ! 缩短变量名称
+    USEVARIABLES = i1 i2 i3 i4 i5 i6 i7 i8 i9 i10 i11 i12 i13;
+
+  MODEL:
+    ! 定义第一个维度，包含前四列
+    factor1 BY i1 i2 i3 i4;
+
+    ! 定义第二个维度，包含第5-9列
+    factor2 BY i5 i6 i7 i8 i9;
+
+    ! 定义第三个维度，包含第10-13列
+    factor3 BY i10 i11 i12 i13;
+
+  OUTPUT:
+    STANDARDIZED;
+    MODINDICES;
+
+*** ERROR
+  The number of observations is 0.  Check your data and format statement.
+  Data file:  数据第二版_data_norm_final.csv
+*** ERROR
+   (Err#: 105)
+  Invalid symbol at record #: 1
+  The record is shown below this message
+
+  The data record is too long to print.  Refer to your data file.
+  The first 70 characters of the data record is printed below:
+  "-0.599426474,0.519476041,0.36322254,-0.098822382,0.266851926,0.2975939"
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

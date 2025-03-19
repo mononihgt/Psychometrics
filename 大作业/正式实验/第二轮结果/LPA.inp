@@ -1,0 +1,27 @@
+TITLE: Latent Profile Analysis (LPA) for 13 items
+
+DATA:
+  FILE = "数据第二版_data_norm_final.csv";  ! 指定数据文件路径
+
+VARIABLE:
+  NAMES = item1 item2 item3 item4 item5 item6 item7 item8 item9 item10 
+          item11 item12 item13;  ! 列出所有变量名
+  USEVARIABLES = item1 item2 item3 item4 item5 item6 item7 item8 item9
+                 item10 item11 item12 item13;  ! 指定使用的变量
+  MISSING = .;  ! 指定缺失值的处理方式（Mplus默认处理缺失值）
+  CLASSES = c(2);  ! 假设有2个潜在剖面（可以根据需要调整）
+
+ANALYSIS:
+  TYPE = MIXTURE;  ! 指定分析类型为混合模型
+  STARTS = 500 100;  ! 设置初始值的迭代次数（500次初始迭代，100次最终迭代）
+
+MODEL:
+  %OVERALL%  ! 总体模型部分
+
+OUTPUT:
+  SAMPSTAT;  ! 输出样本统计量
+  TECH1 TECH8 TECH11 TECH14;  ! 输出技术输出（如参数估计、模型拟合指标）
+
+SAVEDATA:
+  FILE = lpa_results.txt;  ! 保存分析结果
+  SAVE = CPROB;  ! 保存类别概率
